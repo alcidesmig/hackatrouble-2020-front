@@ -1,10 +1,12 @@
-import React from 'react'
-import { IonPage, IonContent, IonLabel, IonSegment, IonSegmentButton, IonList, IonItem, IonNote, IonFab, IonFabButton, IonIcon, IonToolbar, IonSearchbar, IonButton, IonGrid, IonRow, IonCol, IonAvatar } from '@ionic/react'
+import React, { useState } from 'react'
+import { IonPage, IonContent, IonLabel, IonSegment, IonSegmentButton, IonList, IonItem, IonNote, IonFab, IonFabButton, IonIcon, IonToolbar, IonSearchbar, IonButton, IonGrid, IonRow, IonCol } from '@ionic/react'
 import { logOut, logoUsd, medkit, cart, businessOutline } from 'ionicons/icons';
+
 
 const style = { textAlign: 'center', alignItems: 'center', marginLeft: '15px', marginRight: '15px' }
 
 const OutrosLocais = ({ locais }: { locais: { nome: string, categoria: string, distancia: string }[] }) => (
+
     <div>
         <IonGrid style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <IonRow>
@@ -48,7 +50,6 @@ const OutrosLocais = ({ locais }: { locais: { nome: string, categoria: string, d
         </IonGrid>
 
 
-
         <IonList>
             {locais.map(l => {
                 return (
@@ -64,15 +65,13 @@ const OutrosLocais = ({ locais }: { locais: { nome: string, categoria: string, d
         </IonList>
 
         <IonFab vertical="bottom" horizontal="end" slot="fixed">
-            <IonFabButton color="secondary">
+            <IonFabButton color="secondary" routerLink="/" >
                 <IonIcon icon={logOut} />
             </IonFabButton>
         </IonFab>
     </div >
 )
 
-
-// ARRUMAR POSICAO DO NOME DA FILA
 
 const MinhasFilas = ({ filas }: { filas: { nome_estabelecimento: string, nome: string, distancia: string }[] }) => (
     <div>
@@ -92,7 +91,7 @@ const MinhasFilas = ({ filas }: { filas: { nome_estabelecimento: string, nome: s
         </IonList>
 
         <IonFab vertical="bottom" horizontal="end" slot="fixed">
-            <IonFabButton color="secondary">
+            <IonFabButton color="secondary" routerLink="/" >
                 <IonIcon icon={logOut} />
             </IonFabButton>
         </IonFab>

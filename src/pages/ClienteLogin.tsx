@@ -6,7 +6,7 @@ import {
 } from '@ionic/react'
 import { withRouter, RouteComponentProps } from 'react-router'
 
-const style={color: 'gray'}
+const style = { color: 'gray' }
 
 class ClienteLogin extends React.Component<RouteComponentProps> {
   state = { cpf: '', password: '' }
