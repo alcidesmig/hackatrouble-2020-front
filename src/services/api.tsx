@@ -24,12 +24,13 @@ export interface Cliente {
 export interface Estabelecimento {
   username: string,
   password: string,
+  nome: string,
   horario_abertura: string,
   horario_fechamento: string,
   email: string,
   endereco: string,
   cep: string,
-  categoria_id: number,
+  categoria_id?: number,
 }
 
 export interface Fila {
