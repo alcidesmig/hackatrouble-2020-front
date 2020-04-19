@@ -61,7 +61,7 @@ class ClienteCadastro extends React.Component {
                   <IonLabel position="floating" style={style} >Confirmação de senha</IonLabel>
                   <IonInput required type="password" />
                 </IonItem>
-                <IonButton fill="solid" expand="block" style={{ marginTop: 40 }} onClick={() => API.cliente.cadastrar(this.state)}>Registrar</IonButton>
+                <IonButton fill="solid" expand="block" style={{ marginTop: 40 }} routerLink='/clientes' onClick={() => API.cliente.cadastrar(this.state)}>Registrar</IonButton>
               </form>
             </div>
           </div>
