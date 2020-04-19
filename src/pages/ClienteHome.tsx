@@ -1,27 +1,55 @@
 import React from 'react'
-import { IonPage, IonContent, IonLabel, IonSegment, IonSegmentButton, IonList, IonItem, IonNote, IonFab, IonFabButton, IonIcon, IonToolbar, IonSearchbar, IonButton } from '@ionic/react'
+import { IonPage, IonContent, IonLabel, IonSegment, IonSegmentButton, IonList, IonItem, IonNote, IonFab, IonFabButton, IonIcon, IonToolbar, IonSearchbar, IonButton, IonGrid, IonRow, IonCol } from '@ionic/react'
 import { logOut, logoUsd } from 'ionicons/icons';
 
 
 
 const OutrosLocais = ({ locais }: { locais: { nome: string, categoria: string, distancia: string }[] }) => (
     <div>
-        <IonButton shape="round" fill="outline"><IonIcon icon={logoUsd} /></IonButton>
-        <IonButton shape="round" fill="outline"><IonIcon icon={logoUsd} /></IonButton>
-        <IonButton shape="round" fill="outline"><IonIcon icon={logoUsd} /></IonButton>
-        <IonButton shape="round" fill="outline"><IonIcon icon={logoUsd} /></IonButton>
-        <IonButton shape="round" fill="outline"><IonIcon icon={logoUsd} /></IonButton>
-        <IonButton shape="round" fill="outline"><IonIcon icon={logoUsd} /></IonButton>
+        <IonGrid>
+            <IonRow>
+                <IonCol>
+                    <IonButton shape="round" fill="outline"><IonIcon icon={logoUsd} /></IonButton><br></br>
+                </IonCol>
+                <IonCol>
+                    <IonButton shape="round" fill="outline"><IonIcon icon={logoUsd} /></IonButton><br></br>
+                </IonCol>
+                <IonCol>
+                    <IonButton shape="round" fill="outline"><IonIcon icon={logoUsd} /></IonButton><br></br>
+                </IonCol>
+                <IonCol>
+                    <IonButton shape="round" fill="outline"><IonIcon icon={logoUsd} /></IonButton><br></br>
+                </IonCol>
+            </IonRow>
+
+            <IonRow>
+                <IonCol style={{ display: 'flex', alignItens: 'center' }}>
+                    <IonLabel style={{ color: '#353839 ', fontSize: 14 }}>{"Banco"}</IonLabel>
+                </IonCol>
+                <IonCol>
+                    <IonLabel style={{ color: '#353839 ', fontSize: 14 }}>{"Atendimentos Municipais"}</IonLabel>
+                </IonCol>
+                <IonCol>
+                    <IonLabel style={{ color: '#353839 ', fontSize: 14 }}>{"Farmácia"}</IonLabel>
+                </IonCol>
+                <IonCol>
+                    <IonLabel style={{ color: '#353839 ', fontSize: 14 }}>{"Mercados"}</IonLabel>
+                </IonCol>
+            </IonRow>
+
+        </IonGrid>
+
+
 
         <IonList>
             {locais.map(l => {
                 return (
                     <IonItem button onClick={() => { }} color="">
-                        <div style={{display: 'flex', flexDirection: 'column'}}>
-                            <IonLabel style={{color:'#353839 '}}>{l.nome}</IonLabel>
-                            <IonLabel style={{fontSize: 13, color:'gray'}}>{l.categoria}</IonLabel>
+                        <div style={{ display: 'flex', flexDirection: 'column' }}>
+                            <IonLabel style={{ color: '#353839 ' }}>{l.nome}</IonLabel>
+                            <IonLabel style={{ fontSize: 13, color: 'gray' }}>{l.categoria}</IonLabel>
                         </div>
-                        <IonNote slot="end" style={{fontSize: 13}}>{l.distancia}</IonNote>
+                        <IonNote slot="end" style={{ fontSize: 13 }}>{l.distancia}</IonNote>
                     </IonItem>
                 )
             })}
@@ -44,11 +72,11 @@ const MinhasFilas = ({ filas }: { filas: { nome_estabelecimento: string, nome: s
             {filas.map(f => {
                 return (
                     <IonItem button onClick={() => { }} color="">
-                        <div style={{display: 'flex', flexDirection: 'column'}}>
-                            <IonLabel style={{color:'#353839 '}}>{f.nome}</IonLabel>
-                            <IonLabel style={{fontSize: 13, color:'gray'}}>{f.nome_estabelecimento}</IonLabel>
+                        <div style={{ display: 'flex', flexDirection: 'column' }}>
+                            <IonLabel style={{ color: '#353839 ' }}>{f.nome}</IonLabel>
+                            <IonLabel style={{ fontSize: 13, color: 'gray' }}>{f.nome_estabelecimento}</IonLabel>
                         </div>
-                        <IonNote slot="end" style={{fontSize: 13}}>{f.distancia}</IonNote>
+                        <IonNote slot="end" style={{ fontSize: 13 }}>{f.distancia}</IonNote>
                     </IonItem>
                 )
             })}
