@@ -78,14 +78,30 @@ class EstabelecimentoFila extends React.Component<CriarFilaInterface> {
                             onDidDismiss={() => this.setState({showAlert2: false})}
                             header={'Fila de clientes'}
                             message={'Tem certeza que o cliente faltou?'}
-                            buttons={['Cancelar', 'Sim']}
+                            buttons={[
+                                'Cancelar',
+                                {
+                                    text: 'Sim',
+                                    handler: () => {
+                                        //chamar função para marcar que o cliente faltou
+                                      }
+                                }
+                            ]}
                             />
                         <IonAlert
                             isOpen={this.state.showAlert3}
                             onDidDismiss={() => this.setState({showAlert3: false})}
                             header={'Fila de clientes'}
                             message={'Tem certeza que deseja encerrar a fila?'}
-                            buttons={['Cancelar', 'Sim']}
+                            buttons={[
+                                'Cancelar',
+                                {
+                                    text: 'Sim',
+                                    handler: () => {
+                                        //chamar função para marcar que a fila está encerrada
+                                      }
+                                }
+                            ]}
                             />
                         <IonButton fill="solid" color="success"expand="block" style={{ marginTop: 40}} onClick={() => this.setState({showAlert1: true})}>Cliente entrou</IonButton>
                         <IonButton fill="solid" color="danger" expand="block" onClick={() => this.setState({showAlert2: true})}>Cliente faltante</IonButton>
