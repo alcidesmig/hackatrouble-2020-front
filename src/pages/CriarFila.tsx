@@ -4,7 +4,7 @@ import { IonPage, IonContent, IonButton, IonHeader, IonToolbar, IonItem, IonLabe
 const style={color: 'gray'}
 
 class CriarFila extends React.Component {
-    state = {checked: true, horarioAbertura: "", horarioFechamento: ""};
+    state = {checked: true, horarioAbertura: "", horarioFechamento: "", tempo: ""};
     render() {
         return (
         <IonPage>
@@ -24,9 +24,9 @@ class CriarFila extends React.Component {
                         <IonLabel position="floating" style={style}>Nome da fila</IonLabel>
                         <IonInput required/>
                     </IonItem>
-                    <IonItem>
+                    <IonItem style={{marginTop: 5}} >
                         <IonLabel position="floating" style={style}>Tempo por pessoa</IonLabel>
-                        <IonInput required/>
+                        <IonDatetime displayFormat="HH:mm" value={this.state.tempo} onIonChange={e => this.setState({tempo: e.detail.value!})}/>
                     </IonItem>
                     <IonItem>
                         <IonLabel position="floating" style={style}>Descrição</IonLabel>
