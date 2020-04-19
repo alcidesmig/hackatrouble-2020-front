@@ -1,6 +1,7 @@
 import React from 'react'
 import { IonPage, IonContent, IonLabel, IonSegment, IonSegmentButton, IonList, IonItem, IonNote, IonFab, IonFabButton, IonIcon, IonToolbar, IonSearchbar, IonButton, IonGrid, IonRow, IonCol } from '@ionic/react'
 import { logOut, logoUsd, medkit, cart, businessOutline } from 'ionicons/icons';
+import API from '../services/api';
 
 
 const style = { textAlign: 'center', alignItems: 'center', marginLeft: '15px', marginRight: '15px' }
@@ -73,17 +74,17 @@ const OutrosLocais = ({ locais, selectedItem, onSelectCategory }: { selectedItem
 )
 
 
-const MinhasFilas = ({ filas }: { filas: { nome_estabelecimento: string, nome: string, distancia: string }[] }) => (
+const MinhasFilas = ({ filas }: { filas: { id: number, estabelecimento: string, nome: string, tempo_espera_atual: string }[] }) => (
     <div>
         <IonList>
             {filas.map(f => {
                 return (
-                    <IonItem button onClick={() => { }} color="">
+                    <IonItem button key={f.id} onClick={() => { }} color="">
                         <div style={{ display: 'flex', flexDirection: 'column' }}>
                             <IonLabel style={{ color: '#353839 ' }}>{f.nome}</IonLabel>
-                            <IonLabel style={{ fontSize: 13, color: 'gray' }}>{f.nome_estabelecimento}</IonLabel>
+                            <IonLabel style={{ fontSize: 13, color: 'gray' }}>{f.estabelecimento}</IonLabel>
                         </div>
-                        <IonNote slot="end" style={{ fontSize: 13 }}>{f.distancia}</IonNote>
+                        <IonNote slot="end" style={{ fontSize: 13 }}>{f.tempo_espera_atual}</IonNote>
                     </IonItem>
                 )
             })}
@@ -183,6 +184,9 @@ class ClienteHome extends React.Component {
     }
 
     componentDidMount() {
+        API.cliente.listarFilas().then(({ data }) => {
+            this.setState({ filas: data.filas, filas_filtradas: data.filas })
+        })
         if (this.state.type_segment === '1') {
             this.filterLocais()
         } else {
