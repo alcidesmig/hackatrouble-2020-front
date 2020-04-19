@@ -1,0 +1,7 @@
+{
+  "name": "fila-digital",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}

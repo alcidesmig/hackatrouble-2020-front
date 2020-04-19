@@ -1,0 +1,8 @@
+{
+  "appId": "io.ionic.starter",
+  "appName": "fila-digital",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "build",
+  "cordova": {}
+}
