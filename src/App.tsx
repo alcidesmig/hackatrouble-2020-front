@@ -4,9 +4,11 @@ import { IonApp, IonRouterOutlet } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import Home from './pages/Home';
 
+import EstabelecimentoFila from './pages/EstabelecimentoFila';
 import EstabelecimentoCadastro from './pages/EstabelecimentoCadastro';
 import ClienteCadastro from './pages/ClienteCadastro';
 import ClientLogin from './pages/ClientLogin';
+import CriarFila from './pages/CriarFila';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -26,7 +28,6 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
-import CriarFila from './pages/CriarFila';
 
 const App: React.FC = () => (
   <IonApp>
@@ -37,6 +38,7 @@ const App: React.FC = () => (
         <Route path="/clientes/cadastro" component={ClienteCadastro} exact={true} />
         <Route path="/estabelecimentos/cadastro" component={EstabelecimentoCadastro} exact={true} />
         <Route path="/estabelecimentos/criar-fila" component={CriarFila} exact={true} />
+        <Route path="/estabelecimentos/fila/:id" component={EstabelecimentoFila} exact={true} />
       </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>
