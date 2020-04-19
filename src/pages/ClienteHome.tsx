@@ -17,9 +17,11 @@ const OutrosLocais = ({ locais }: { locais: { nome: string, categoria: string, d
             {locais.map(l => {
                 return (
                     <IonItem button onClick={() => { }} color="">
-                        <IonLabel>{l.nome}</IonLabel>
-                        <IonLabel position="stacked">{l.categoria}</IonLabel>
-                        <IonNote slot="end">{l.distancia}</IonNote>
+                        <div style={{display: 'flex', flexDirection: 'column'}}>
+                            <IonLabel style={{color:'#353839 '}}>{l.nome}</IonLabel>
+                            <IonLabel style={{fontSize: 13, color:'gray'}}>{l.categoria}</IonLabel>
+                        </div>
+                        <IonNote slot="end" style={{fontSize: 13}}>{l.distancia}</IonNote>
                     </IonItem>
                 )
             })}
@@ -42,9 +44,11 @@ const MinhasFilas = ({ filas }: { filas: { nome_estabelecimento: string, nome: s
             {filas.map(f => {
                 return (
                     <IonItem button onClick={() => { }} color="">
-                        <IonLabel>{f.nome}</IonLabel>
-                        <IonLabel position="stacked">{f.nome_estabelecimento}</IonLabel>
-                        <IonNote slot="end">{f.distancia}</IonNote>
+                        <div style={{display: 'flex', flexDirection: 'column'}}>
+                            <IonLabel style={{color:'#353839 '}}>{f.nome}</IonLabel>
+                            <IonLabel style={{fontSize: 13, color:'gray'}}>{f.nome_estabelecimento}</IonLabel>
+                        </div>
+                        <IonNote slot="end" style={{fontSize: 13}}>{f.distancia}</IonNote>
                     </IonItem>
                 )
             })}
