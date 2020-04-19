@@ -1,24 +1,32 @@
 import React from 'react'
-import { IonPage, IonContent, IonLabel, IonSegment, IonSegmentButton, IonList, IonItem, IonNote, IonFab, IonFabButton, IonIcon, IonToolbar, IonSearchbar, IonButton, IonGrid, IonRow, IonCol } from '@ionic/react'
-import { logOut, logoUsd } from 'ionicons/icons';
+import { IonPage, IonContent, IonLabel, IonSegment, IonSegmentButton, IonList, IonItem, IonNote, IonFab, IonFabButton, IonIcon, IonToolbar, IonSearchbar, IonButton, IonGrid, IonRow, IonCol, IonAvatar } from '@ionic/react'
+import { logOut, logoUsd, medkit, cart, businessOutline } from 'ionicons/icons';
 
-const style={ textAlign: 'center', alignItems: 'center'}
+const style = { textAlign: 'center', alignItems: 'center', marginLeft: '15px', marginRight: '15px' }
 
 const OutrosLocais = ({ locais }: { locais: { nome: string, categoria: string, distancia: string }[] }) => (
     <div>
-        <IonGrid style={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+        <IonGrid style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <IonRow>
                 <IonCol>
-                    <IonButton shape="round" fill="outline"><IonIcon icon={logoUsd} /></IonButton><br></br>
+                    <IonButton shape="round" style={{ width: '90px', height: '90px', marginLeft: '10px', marginRight: '10px' }}><
+                        IonIcon icon={logoUsd} style={{ width: '60px', height: '60px' }} />
+                    </IonButton>
                 </IonCol>
                 <IonCol>
-                    <IonButton shape="round" fill="outline"><IonIcon icon={logoUsd} /></IonButton><br></br>
+                    <IonButton shape="round" style={{ width: '90px', height: '90px', marginLeft: '10px', marginRight: '10px' }}><
+                        IonIcon icon={businessOutline} style={{ width: '60px', height: '60px' }} />
+                    </IonButton>
                 </IonCol>
                 <IonCol>
-                    <IonButton shape="round" fill="outline"><IonIcon icon={logoUsd} /></IonButton><br></br>
+                    <IonButton shape="round" style={{ width: '90px', height: '90px', marginLeft: '10px', marginRight: '10px' }}><
+                        IonIcon icon={medkit} style={{ width: '60px', height: '60px' }} />
+                    </IonButton>
                 </IonCol>
                 <IonCol>
-                    <IonButton shape="round" fill="outline"><IonIcon icon={logoUsd} /></IonButton><br></br>
+                    <IonButton shape="round" style={{ width: '90px', height: '90px', marginLeft: '10px', marginRight: '10px' }}><
+                        IonIcon icon={cart} style={{ width: '60px', height: '60px' }} />
+                    </IonButton>
                 </IonCol>
             </IonRow>
 
@@ -60,7 +68,7 @@ const OutrosLocais = ({ locais }: { locais: { nome: string, categoria: string, d
                 <IonIcon icon={logOut} />
             </IonFabButton>
         </IonFab>
-    </div>
+    </div >
 )
 
 
