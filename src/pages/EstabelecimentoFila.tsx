@@ -1,5 +1,5 @@
 import React from 'react';
-import { IonPage, IonContent, IonButton, IonHeader, IonToolbar, IonButtons, IonBackButton, IonTitle, IonLabel, IonModal, IonIcon, IonItem, IonInput} from '@ionic/react'
+import { IonPage, IonContent, IonButton, IonHeader, IonToolbar, IonButtons, IonBackButton, IonTitle, IonLabel, IonModal, IonIcon, IonItem, IonInput, IonAlert} from '@ionic/react'
 import { withRouter, RouteComponentProps } from 'react-router';
 
 const style={color: 'gray'}
@@ -9,7 +9,7 @@ export interface CriarFilaInterface extends RouteComponentProps<{
   }> {}
 
 class EstabelecimentoFila extends React.Component<CriarFilaInterface> {
-    state = {showModal: false};
+    state = {showModal: false, showAlert1: false, showAlert2: false, showAlert3: false};
     render() {
         const {id} = this.props.match.params
         return (
@@ -66,10 +66,31 @@ class EstabelecimentoFila extends React.Component<CriarFilaInterface> {
                                 </form>
                             </IonContent>
                         </IonModal>
-                        <IonButton fill="solid" color="success"expand="block" style={{ marginTop: 40}}>Cliente entrou</IonButton>
-                        <IonButton fill="solid" color="danger" expand="block">Cliente faltante</IonButton>
+                        <IonAlert
+                            isOpen={this.state.showAlert1}
+                            onDidDismiss={() => this.setState({showAlert1: false})}
+                            header={'Fila de clientes'}
+                            message={'Cliente entrou na fila com sucesso!'}
+                            buttons={['OK']}
+                            />
+                        <IonAlert
+                            isOpen={this.state.showAlert2}
+                            onDidDismiss={() => this.setState({showAlert2: false})}
+                            header={'Fila de clientes'}
+                            message={'Tem certeza que o cliente faltou?'}
+                            buttons={['Cancelar', 'Sim']}
+                            />
+                        <IonAlert
+                            isOpen={this.state.showAlert3}
+                            onDidDismiss={() => this.setState({showAlert3: false})}
+                            header={'Fila de clientes'}
+                            message={'Tem certeza que deseja encerrar a fila?'}
+                            buttons={['Cancelar', 'Sim']}
+                            />
+                        <IonButton fill="solid" color="success"expand="block" style={{ marginTop: 40}} onClick={() => this.setState({showAlert1: true})}>Cliente entrou</IonButton>
+                        <IonButton fill="solid" color="danger" expand="block" onClick={() => this.setState({showAlert2: true})}>Cliente faltante</IonButton>
                         <IonButton fill="solid" color="secondary" expand="block" onClick={() => this.setState({showModal: true})}>Inserir cliente</IonButton>
-                        <IonButton fill="outline" style={{colorHover: "secondary"}}>Encerrar fila</IonButton>
+                        <IonButton fill="outline" style={{colorHover: "secondary"}} onClick={() => this.setState({showAlert3: true})}>Encerrar fila</IonButton>
                     </div>
                 </div>
             </div>
