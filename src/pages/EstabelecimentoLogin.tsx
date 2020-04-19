@@ -35,8 +35,8 @@ class EstabelecimentoLogin extends React.Component<RouteComponentProps> {
               </IonItem>
 
               <div style={{ width: '100%', paddingLeft: 16, paddingTop: 16 }}>
-                <IonButton onClick={() => this.props.history.push('/clientes')} style={{ marginBottom: 16, width: '100%' }} fill="solid" expand="block">Login</IonButton>
-                <IonButton onClick={() => this.props.history.push('/clientes/entrar')} style={{ marginBottom: 16, width: '100%' }} fill="solid" expand="block">Registrar</IonButton>
+                <IonButton onClick={() => this.props.history.push('/estabelecimentos')} style={{ marginBottom: 16, width: '100%' }} fill="solid" expand="block">Login</IonButton>
+                <IonButton onClick={() => this.props.history.push('/estabelecimentos/cadastro')} style={{ marginBottom: 16, width: '100%' }} fill="solid" expand="block">Registrar</IonButton>
               </div>
             </div>
           </div>

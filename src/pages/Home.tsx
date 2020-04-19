@@ -15,7 +15,7 @@ class Login extends React.Component<RouteComponentProps>  {
               <span style={{ color: '#444444', fontSize: 21 }}>Entrar como:</span>
               <div style={{ padding: 8, width: '100%' }}>
                 <IonButton onClick={() => this.props.history.push('/clientes/entrar')} style={{ marginBottom: 16 }} fill="solid" expand="block">Clientes</IonButton>
-                <IonButton fill="solid" expand="block">Estabelecimento</IonButton>
+                <IonButton onClick={() => this.props.history.push('/estabelecimentos/entrar')} fill="solid" expand="block">Estabelecimento</IonButton>
               </div>
             </div>
           </div>
