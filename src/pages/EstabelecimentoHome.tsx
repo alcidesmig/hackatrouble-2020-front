@@ -1,6 +1,6 @@
 import React from 'react'
 import { IonPage, IonContent, IonLabel, IonSegment, IonSegmentButton, IonList, IonItem, IonNote, IonFab, IonFabButton, IonIcon, IonToolbar, IonSearchbar } from '@ionic/react'
-import { add } from 'ionicons/icons';
+import { add, logOut } from 'ionicons/icons';
 
 const MinhasFilas = ({ filas }: { filas: { id: string, nome: string, tempo_espera: string }[] }) => (
     <div>
@@ -8,8 +8,8 @@ const MinhasFilas = ({ filas }: { filas: { id: string, nome: string, tempo_esper
             {filas.map((f, index) => {
                 return (
                     <IonItem key={index} button routerLink={`/estabelecimentos/fila/${f.id}`} >
-                        <IonLabel style={{color:'#353839'}}>{f.nome}</IonLabel>
-                        <IonNote slot="end" style={{fontSize: 13}}>{f.tempo_espera}</IonNote>
+                        <IonLabel style={{ color: '#353839' }}>{f.nome}</IonLabel>
+                        <IonNote slot="end" style={{ fontSize: 13 }}>{f.tempo_espera}</IonNote>
                     </IonItem>
                 )
             })}
@@ -18,6 +18,12 @@ const MinhasFilas = ({ filas }: { filas: { id: string, nome: string, tempo_esper
         <IonFab vertical="bottom" horizontal="end" slot="fixed">
             <IonFabButton color="secondary" routerLink="/estabelecimentos/criar-fila" routerDirection="forward">
                 <IonIcon icon={add} />
+            </IonFabButton>
+        </IonFab>
+
+        <IonFab vertical="bottom" horizontal="start" slot="fixed">
+            <IonFabButton color="secondary" routerLink="/" >
+                <IonIcon icon={logOut} />
             </IonFabButton>
         </IonFab>
     </div>
@@ -29,8 +35,8 @@ const OutrosLocais = ({ locais }: { locais: { nome: string, tempo_espera: string
             {locais.map(l => {
                 return (
                     <IonItem button onClick={() => { }} color="">
-                        <IonLabel style={{color:'#353839'}}>{l.nome}</IonLabel>
-                        <IonNote slot="end" style={{fontSize: 13}}>{l.tempo_espera}</IonNote>
+                        <IonLabel style={{ color: '#353839' }}>{l.nome}</IonLabel>
+                        <IonNote slot="end" style={{ fontSize: 13 }}>{l.tempo_espera}</IonNote>
                     </IonItem>
                 )
             })}
