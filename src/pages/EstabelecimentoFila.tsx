@@ -1,17 +1,22 @@
 import React from 'react';
 import { IonPage, IonContent, IonButton, IonHeader, IonToolbar, IonButtons, IonBackButton, IonTitle, IonLabel} from '@ionic/react'
-import { RouteComponentProps, withRouter } from 'react-router';
+import { withRouter, RouteComponentProps } from 'react-router';
 
 const style={color: 'gray'}
 
-class CriarFila extends React.Component<RouteComponentProps> {
+export interface CriarFilaInterface extends RouteComponentProps<{
+    id: string
+  }> {}
+
+class CriarFila extends React.Component<CriarFilaInterface> {
     state = {checked: true, horarioAbertura: "", horarioFechamento: "", tempo: ""};
     render() {
+        const {id} = this.props.match.params
         return (
         <IonPage>
             <IonHeader className="ion-no-border">
                 <IonToolbar>
-                <IonTitle style={style}>Fila 1</IonTitle>
+                <IonTitle style={style}>Fila {id}</IonTitle>
                 <IonButtons slot="start">
                     <IonBackButton defaultHref="/"/>
                 </IonButtons>
@@ -34,10 +39,10 @@ class CriarFila extends React.Component<RouteComponentProps> {
                             <IonLabel style={{marginTop: 15}}>Nome: </IonLabel>
                             <IonLabel>CPF: </IonLabel>
                         </div>
-                        <IonButton fill="solid" color="#70C254"expand="block" style={{ marginTop: 40, backgroundColor: '#70C254', borderRadius: 10}}>Cliente entrou</IonButton>
-                        <IonButton fill="solid" color="#F05858" expand="block" style={{backgroundColor: '#F05858', borderRadius: 10}}>Cliente faltante</IonButton>
-                        <IonButton fill="solid" color="#2DB7FF" expand="block" style={{backgroundColor: '#2DB7FF', borderRadius: 10}} >Inserir cliente</IonButton>
-                        <IonButton fill="outline" style={{colorHover: "primary"}}>Encerrar fila</IonButton>
+                        <IonButton fill="solid" color="success"expand="block" style={{ marginTop: 40}}>Cliente entrou</IonButton>
+                        <IonButton fill="solid" color="danger" expand="block">Cliente faltante</IonButton>
+                        <IonButton fill="solid" color="secondary" expand="block">Inserir cliente</IonButton>
+                        <IonButton fill="outline" style={{colorHover: "secondary"}}>Encerrar fila</IonButton>
                     </div>
                 </div>
             </div>
