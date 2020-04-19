@@ -6,6 +6,8 @@ import {
 } from '@ionic/react'
 import { withRouter, RouteComponentProps } from 'react-router'
 
+const style={color: 'gray'}
+
 class ClienteLogin extends React.Component<RouteComponentProps> {
   state = { cpf: '', password: '' }
 
@@ -13,7 +15,7 @@ class ClienteLogin extends React.Component<RouteComponentProps> {
 
     return (
       <IonPage>
-        <IonHeader>
+        <IonHeader className="ion-no-border">
           <IonToolbar>
             <IonButtons slot="start">
               <IonBackButton defaultHref="/" />
@@ -26,11 +28,11 @@ class ClienteLogin extends React.Component<RouteComponentProps> {
             <span style={{ color: 'var(--ion-color-medium)', fontSize: 14, marginTop: 8 }}>Fila Digital</span>
             <div style={{ padding: 32, width: '100%', maxWidth: 768, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
               <IonItem>
-                <IonLabel position="floating">CPF</IonLabel>
+                <IonLabel position="floating" style={style}>CPF</IonLabel>
                 <IonInput name="cpf" value={this.state.cpf} onIonChange={event => this.setState({ cpf: event.detail.value })}></IonInput>
               </IonItem>
               <IonItem>
-                <IonLabel position="floating">Senha</IonLabel>
+                <IonLabel position="floating" style={style}>Senha</IonLabel>
                 <IonInput name="password" value={this.state.password} onIonChange={event => this.setState({ password: event.detail.value })}></IonInput>
               </IonItem>
 

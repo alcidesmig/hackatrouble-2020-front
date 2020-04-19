@@ -20,6 +20,7 @@ class ClienteCadastro extends React.Component {
             <IonContent>
             <div style={{ marginTop: 30, width: '100%', height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
             <img src={Logo} alt="Fila virtual" width={64} height={64} style={{ borderRadius: 16 }} />
+            <span style={{ color: 'var(--ion-color-medium)', fontSize: 14, marginTop: 8 }}>Fila Digital</span>
                 <div style={{ padding: 32, width: '100%', maxWidth: 768, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
                 <form style={{ display: 'flex', flexDirection: 'column', width: '100%'}}>
                     <IonItem>
