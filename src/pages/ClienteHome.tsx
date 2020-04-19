@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { IonPage, IonContent, IonLabel, IonSegment, IonSegmentButton, IonList, IonItem, IonNote, IonFab, IonFabButton, IonIcon, IonToolbar, IonSearchbar, IonButton, IonGrid, IonRow, IonCol } from '@ionic/react'
 import { logOut, logoUsd, medkit, cart, businessOutline } from 'ionicons/icons';
 
