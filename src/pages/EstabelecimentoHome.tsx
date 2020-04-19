@@ -4,7 +4,7 @@ import { add, list, map } from 'ionicons/icons';
 
 
 
-const MinhaFila = ({ filas }: { filas: { nome: string, tempo_espera: string }[] }) => (
+const MinhasFilas = ({ filas }: { filas: { nome: string, tempo_espera: string }[] }) => (
     <div>
         <IonList>
             {filas.map(f => {
@@ -28,27 +28,22 @@ const MinhaFila = ({ filas }: { filas: { nome: string, tempo_espera: string }[] 
 const OutrosLocais = ({ locais }: { locais: { nome: string, tempo_espera: string }[] }) => (
     <div>
         <IonList>
-            {locais.map(f => {
+            {locais.map(l => {
                 return (
                     <IonItem button onClick={() => { }} color="">
-                        <IonLabel>{f.nome}</IonLabel>
-                        <IonNote slot="end">{f.tempo_espera}</IonNote>
+                        <IonLabel>{l.nome}</IonLabel>
+                        <IonNote slot="end">{l.tempo_espera}</IonNote>
                     </IonItem>
                 )
             })}
         </IonList>
-
-        <IonFab vertical="bottom" horizontal="end" slot="fixed">
-            <IonFabButton color="secondary">
-                <IonIcon icon={add} />
-            </IonFabButton>
-        </IonFab>
     </div>
 )
 
 class EstabelecimentoHome extends React.Component {
     state = {
         'type_segment': '1',
+        'campo_busca': '',
         'filas': [{ 'nome': 'Fila 1', 'tempo_espera': '1h30' },
         { 'nome': 'Fila 2', 'tempo_espera': '40min' },
         { 'nome': 'Fila 3', 'tempo_espera': '15min' },
@@ -60,8 +55,7 @@ class EstabelecimentoHome extends React.Component {
         'locais': [{ 'nome': 'Estabelecimento 1', 'tempo_espera': '2h40' },
         { 'nome': 'Estabelecimento 2', 'tempo_espera': '45min' }],
         'locais_filtrados': [{ 'nome': 'Estabelecimento 1', 'tempo_espera': '2h40' },
-        { 'nome': 'Estabelecimento 2', 'tempo_espera': '45min' }],
-        'campo_busca': ''
+        { 'nome': 'Estabelecimento 2', 'tempo_espera': '45min' }]
     }
 
     filterList(filas: any[], busca: string) {
@@ -82,7 +76,7 @@ class EstabelecimentoHome extends React.Component {
                 <IonContent>
                     <IonToolbar no-border-top color="secondary">
 
-                        <IonSearchbar value={this.state.campo_busca} class="ion-margin-top" placeholder={this.state.type_segment === '1' ? "Procurar filas" : "Procurar locais"}
+                        <IonSearchbar value={this.state.campo_busca} class="ion-margin-top" placeholder={this.state.type_segment === '1' ? "Procurar fila" : "Procurar estabelecimento"}
                             onIonChange={(e) => this.state.type_segment === '1' ?
                                 this.setState({ 'filas_filtradas': this.filterList(this.state.filas, e.detail.value!), 'campo_busca': e.detail.value! }) :
                                 this.setState({ 'locais_filtrados': this.filterList(this.state.locais, e.detail.value!), 'campo_busca': e.detail.value! })}  >
@@ -98,7 +92,7 @@ class EstabelecimentoHome extends React.Component {
                         </IonSegment>
                     </IonToolbar>
 
-                    {this.state.type_segment === '1' && <MinhaFila filas={this.state.filas_filtradas} />}
+                    {this.state.type_segment === '1' && <MinhasFilas filas={this.state.filas_filtradas} />}
                     {this.state.type_segment === '2' && <OutrosLocais locais={this.state.locais_filtrados} />}
 
                 </IonContent>
