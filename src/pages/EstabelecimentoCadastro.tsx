@@ -1,15 +1,20 @@
 import React from 'react';
-import { IonPage, IonContent, IonButton, IonHeader, IonToolbar, IonTitle, IonItem, IonLabel, IonInput, IonSelect, IonSelectOption } from '@ionic/react'
+import { IonPage, IonContent, IonButton, IonHeader, IonToolbar, IonItem, IonLabel, IonInput, IonSelect, IonSelectOption, IonButtons, IonBackButton, IonDatetime } from '@ionic/react'
 import Logo from '../assets/logo.png'
 
+const style={color: 'gray'}
+
 class EstabelecimentoCadastro extends React.Component {
-    state = {categoria: ""};
+    state = {categoria: "", horario: ""};
 
     render() {
         return (
         <IonPage>
-            <IonHeader>
+            <IonHeader className="ion-no-border">
                 <IonToolbar>
+                <IonButtons slot="start">
+                    <IonBackButton defaultHref="/"/>
+                </IonButtons>
                 </IonToolbar>
             </IonHeader>
             <IonContent>
@@ -18,42 +23,42 @@ class EstabelecimentoCadastro extends React.Component {
                 <div style={{ padding: 32, width: '100%', maxWidth: 768, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
                 <form style={{ display: 'flex', flexDirection: 'column', width: '100%'}}>
                     <IonItem>
-                        <IonLabel position="floating">Nome</IonLabel>
+                        <IonLabel position="floating" style={style}>Nome</IonLabel>
                         <IonInput required/>
                     </IonItem>
-                    <IonItem>
-                        <IonLabel>Categoria</IonLabel>
+                    <IonItem style={{marginTop: 10}}>
+                        <IonLabel style={style}>Categoria</IonLabel>
                         <IonSelect value={this.state.categoria} onIonChange={e => this.setState({categoria: e.detail.value})}>
                             <IonSelectOption value="teste">Teste</IonSelectOption>
                         </IonSelect>
                     </IonItem>
+                    <IonItem style={{marginTop: 5}} >
+                        <IonLabel position="floating" style={style}>Horário de funcionamento</IonLabel>
+                        <IonDatetime displayFormat="DD/MM/YYYY HH:mm" value={this.state.horario} onIonChange={e => this.setState({horario: e.detail.value!})}/>
+                    </IonItem>
                     <IonItem>
-                        <IonLabel position="floating">Horário de funcionamento</IonLabel>
+                        <IonLabel position="floating" style={style}>CNPJ</IonLabel>
                         <IonInput required/>
                     </IonItem>
                     <IonItem>
-                        <IonLabel position="floating">CNPJ</IonLabel>
+                        <IonLabel position="floating" style={style}>CEP</IonLabel>
                         <IonInput required/>
                     </IonItem>
                     <IonItem>
-                        <IonLabel position="floating">CEP</IonLabel>
+                        <IonLabel position="floating" style={style}>Endereço</IonLabel>
                         <IonInput required/>
                     </IonItem>
                     <IonItem>
-                        <IonLabel position="floating">Endereço</IonLabel>
-                        <IonInput required/>
+                        <IonLabel position="floating" style={style}>E-mail</IonLabel>
+                        <IonInput required type="email"/>
                     </IonItem>
                     <IonItem>
-                        <IonLabel position="floating">E-mail</IonLabel>
-                        <IonInput required/>
+                        <IonLabel position="floating" style={style}>Senha</IonLabel>
+                        <IonInput required type="password"/>
                     </IonItem>
                     <IonItem>
-                        <IonLabel position="floating">Senha</IonLabel>
-                        <IonInput required/>
-                    </IonItem>
-                    <IonItem>
-                        <IonLabel position="floating">Confirmação de senha</IonLabel>
-                        <IonInput required/>
+                        <IonLabel position="floating" style={style}>Confirmação de senha</IonLabel>
+                        <IonInput required type="password"/>
                     </IonItem>
                     <IonButton fill="solid" expand="block" style={{ marginTop: 40 }}>Registrar</IonButton>
                 </form>
