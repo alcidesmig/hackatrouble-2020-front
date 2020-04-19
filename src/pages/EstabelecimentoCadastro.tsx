@@ -36,7 +36,7 @@ class EstabelecimentoCadastro extends React.Component {
                 <form style={{ display: 'flex', flexDirection: 'column', width: '100%'}}>
                     <IonItem>
                         <IonLabel position="floating" style={style}>Nome</IonLabel>
-                        <IonInput required value={this.state.nome}/>
+                        <IonInput required value={this.state.nome} onIonChange={e => this.setState({nome: e.detail.value})}/>
                     </IonItem>
                     <IonItem style={{marginTop: 10}}>
                         <IonLabel style={style}>Categoria</IonLabel>
@@ -54,27 +54,27 @@ class EstabelecimentoCadastro extends React.Component {
                     </IonItem>
                     <IonItem>
                         <IonLabel position="floating" style={style}>CNPJ</IonLabel>
-                        <IonInput required value={this.state.cnpj}/>
+                        <IonInput required value={this.state.cnpj} onIonChange={e => this.setState({cnpj: e.detail.value})}/>
                     </IonItem>
                     <IonItem>
                         <IonLabel position="floating" style={style}>CEP</IonLabel>
-                        <IonInput required value={this.state.cep}/>
+                        <IonInput required value={this.state.cep} onIonChange={e => this.setState({cep: e.detail.value})}/>
                     </IonItem>
                     <IonItem>
                         <IonLabel position="floating" style={style}>Endereço</IonLabel>
-                        <IonInput required value={this.state.endereco}/>
+                        <IonInput required value={this.state.endereco} onIonChange={e => this.setState({endereco: e.detail.value})}/>
                     </IonItem>
                     <IonItem>
                         <IonLabel position="floating" style={style}>E-mail</IonLabel>
-                        <IonInput required type="email" value={this.state.email}/>
+                        <IonInput required type="email" value={this.state.email} onIonChange={e => this.setState({email: e.detail.value})}/>
                     </IonItem>
                     <IonItem>
                         <IonLabel position="floating" style={style}>Senha</IonLabel>
-                        <IonInput required type="password" value={this.state.senha}/>
+                        <IonInput required type="password" value={this.state.senha} onIonChange={e => this.setState({senha: e.detail.value})}/>
                     </IonItem>
                     <IonItem>
                         <IonLabel position="floating" style={style}>Confirmação de senha</IonLabel>
-                        <IonInput required type="password" value={this.state.confirmacaoSenha}/>
+                        <IonInput required type="password" value={this.state.confirmacaoSenha} onIonChange={e => this.setState({confirmacaoSenha: e.detail.value})}/>
                     </IonItem>
                     <IonButton fill="solid" expand="block" style={{ marginTop: 40 }}>Registrar</IonButton>
                 </form>
