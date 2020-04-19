@@ -36,7 +36,7 @@ const App: React.FC = () => (
         <Route path="/clientes" component={ClientLogin} exact={true} />
         <Route path="/clientes/cadastro" component={ClienteCadastro} exact={true} />
         <Route path="/estabelecimentos/cadastro" component={EstabelecimentoCadastro} exact={true} />
-        <Route path="/estabelecimentos/criarfila" component={CriarFila} exact={true} />
+        <Route path="/estabelecimentos/criar-fila" component={CriarFila} exact={true} />
       </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>
