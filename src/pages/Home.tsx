@@ -1,26 +1,27 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import React from 'react';
-import ExploreContainer from '../components/ExploreContainer';
-import './Home.css';
+import React from 'react'
+import Logo from '../assets/logo.png'
+import { IonPage, IonContent, IonButton } from '@ionic/react'
 
-const Home: React.FC = () => {
-  return (
-    <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Blank</IonTitle>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Blank</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        <ExploreContainer />
-      </IonContent>
-    </IonPage>
-  );
-};
+class Login extends React.Component {
+  render() {
+    return (
+      <IonPage>
+        <IonContent>
+          <div style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+            <img src={Logo} alt="Fila virtual" width={64} height={64} style={{ borderRadius: 16 }} />
+            <div style={{ padding: 32, width: '100%', maxWidth: 768, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+              <strong>Entrar como:</strong>
+              <div style={{ padding: 32, width: '100%' }}>
+                <IonButton style={{ marginBottom: 16 }} fill="solid" expand="block">Clientes</IonButton>
+                <IonButton fill="solid" expand="block">Estabelecimento</IonButton>
+              </div>
+            </div>
+          </div>
+        </IonContent>
+      </IonPage>
+    )
+  }
+}
 
-export default Home;
+
+export default Login

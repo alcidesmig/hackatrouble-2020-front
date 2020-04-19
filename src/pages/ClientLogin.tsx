@@ -1,7 +1,7 @@
 import React from 'react'
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonButton } from '@ionic/react'
+import { IonPage, IonContent, IonButton } from '@ionic/react'
 
-class Login extends React.Component {
+class ClientLogin extends React.Component {
   render() {
     return (
       <IonPage>
@@ -15,7 +15,6 @@ class Login extends React.Component {
               </div>
             </div>
           </div>
-
         </IonContent>
       </IonPage>
     )
@@ -23,4 +22,4 @@ class Login extends React.Component {
 }
 
 
-export default Login
+export default ClientLogin
