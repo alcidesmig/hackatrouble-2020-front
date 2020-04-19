@@ -1,8 +1,6 @@
 import React from 'react';
-import { IonPage, IonContent, IonButton, IonHeader, IonToolbar, IonButtons, IonBackButton, IonTitle, IonLabel, IonList, IonItem, IonNote, IonSearchbar, IonSegment, IonSegmentButton } from '@ionic/react'
+import { IonPage, IonContent, IonHeader, IonToolbar, IonButtons, IonBackButton, IonTitle, IonLabel, IonList, IonItem, IonNote, IonSearchbar } from '@ionic/react'
 import { withRouter, RouteComponentProps } from 'react-router';
-
-const style = { color: 'gray' }
 
 export interface CriarFilaInterface extends RouteComponentProps<{
     id: string

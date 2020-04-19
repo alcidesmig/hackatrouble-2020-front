@@ -5,7 +5,18 @@ import Logo from '../assets/logo.png'
 const style={color: 'gray'}
 
 class EstabelecimentoCadastro extends React.Component {
-    state = {categoria: "", horarioAbertura: "", horarioFechamento: ""};
+    state = {
+        nome: "", 
+        cnpj: "",
+        cep: "",
+        endereco: "",
+        email: "",
+        senha: "",
+        confirmacaoSenha: "",
+        categoria: "",
+        horarioAbertura: "",
+        horarioFechamento: ""
+    };
 
     render() {
         return (
@@ -25,7 +36,7 @@ class EstabelecimentoCadastro extends React.Component {
                 <form style={{ display: 'flex', flexDirection: 'column', width: '100%'}}>
                     <IonItem>
                         <IonLabel position="floating" style={style}>Nome</IonLabel>
-                        <IonInput required/>
+                        <IonInput required value={this.state.nome}/>
                     </IonItem>
                     <IonItem style={{marginTop: 10}}>
                         <IonLabel style={style}>Categoria</IonLabel>
@@ -43,27 +54,27 @@ class EstabelecimentoCadastro extends React.Component {
                     </IonItem>
                     <IonItem>
                         <IonLabel position="floating" style={style}>CNPJ</IonLabel>
-                        <IonInput required/>
+                        <IonInput required value={this.state.cnpj}/>
                     </IonItem>
                     <IonItem>
                         <IonLabel position="floating" style={style}>CEP</IonLabel>
-                        <IonInput required/>
+                        <IonInput required value={this.state.cep}/>
                     </IonItem>
                     <IonItem>
                         <IonLabel position="floating" style={style}>Endereço</IonLabel>
-                        <IonInput required/>
+                        <IonInput required value={this.state.endereco}/>
                     </IonItem>
                     <IonItem>
                         <IonLabel position="floating" style={style}>E-mail</IonLabel>
-                        <IonInput required type="email"/>
+                        <IonInput required type="email" value={this.state.email}/>
                     </IonItem>
                     <IonItem>
                         <IonLabel position="floating" style={style}>Senha</IonLabel>
-                        <IonInput required type="password"/>
+                        <IonInput required type="password" value={this.state.senha}/>
                     </IonItem>
                     <IonItem>
                         <IonLabel position="floating" style={style}>Confirmação de senha</IonLabel>
-                        <IonInput required type="password"/>
+                        <IonInput required type="password" value={this.state.confirmacaoSenha}/>
                     </IonItem>
                     <IonButton fill="solid" expand="block" style={{ marginTop: 40 }}>Registrar</IonButton>
                 </form>
