@@ -42,20 +42,20 @@ export interface Fila {
 
 const API = {
   cliente: {
-    login: (username: string, passoword: string) => api.post('/login', { username, passoword }),
+    login: (username: string, password: string) => api.post('/login', { username, password }),
     logout: () => api.post('/logout'),
     refreshToken: () => api.post('/token/refresh'),
-    cadastrar: (data: Estabelecimento) => api.post('/register', data),
+    cadastrar: (data: Cliente) => api.post('/register', { ...data, is_cliente: true }),
     listarFilas: () => api.get('/cliente/fila'),
     entrarNaFila: (id_fila: number) => api.post('/cliente/fila', { id_fila }),
     sairDaFila: (id_fila: number) => api.delete('/cliente/fila', { data: { id_fila } })
 
   },
   estabelecimento: {
-    login: (username: string, passoword: string) => api.post('/login', { username, passoword }),
+    login: (username: string, password: string) => api.post('/login', { username, password }),
     logout: () => api.post('/logout'),
     refreshToken: () => api.post('/token/refresh'),
-    cadastrar: (data: Estabelecimento) => api.post('/register', data),
+    cadastrar: (data: Estabelecimento) => api.post('/register', { ...data, is_cliente: false }),
     listar: (categoria_id?: number) => api.get('/estabelecimento', { data: { categoria_id } }),
     get: (id_estabelecimento: number) => api.get('/estabelecimento', { data: { id_estabelecimento } }),
     listarFilas: () => api.get('/fila'),
