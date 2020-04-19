@@ -2,11 +2,11 @@ import React from 'react'
 import { IonPage, IonContent, IonLabel, IonSegment, IonSegmentButton, IonList, IonItem, IonNote, IonFab, IonFabButton, IonIcon, IonToolbar, IonSearchbar, IonButton, IonGrid, IonRow, IonCol } from '@ionic/react'
 import { logOut, logoUsd } from 'ionicons/icons';
 
-
+const style={ textAlign: 'center', alignItems: 'center'}
 
 const OutrosLocais = ({ locais }: { locais: { nome: string, categoria: string, distancia: string }[] }) => (
     <div>
-        <IonGrid>
+        <IonGrid style={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
             <IonRow>
                 <IonCol>
                     <IonButton shape="round" fill="outline"><IonIcon icon={logoUsd} /></IonButton><br></br>
@@ -23,16 +23,16 @@ const OutrosLocais = ({ locais }: { locais: { nome: string, categoria: string, d
             </IonRow>
 
             <IonRow>
-                <IonCol style={{ display: 'flex', alignItens: 'center' }}>
+                <IonCol style={style}>
                     <IonLabel style={{ color: '#353839 ', fontSize: 14 }}>{"Banco"}</IonLabel>
                 </IonCol>
-                <IonCol>
+                <IonCol style={style}>
                     <IonLabel style={{ color: '#353839 ', fontSize: 14 }}>{"Atendimentos Municipais"}</IonLabel>
                 </IonCol>
-                <IonCol>
+                <IonCol style={style}>
                     <IonLabel style={{ color: '#353839 ', fontSize: 14 }}>{"Farmácia"}</IonLabel>
                 </IonCol>
-                <IonCol>
+                <IonCol style={style}>
                     <IonLabel style={{ color: '#353839 ', fontSize: 14 }}>{"Mercados"}</IonLabel>
                 </IonCol>
             </IonRow>
