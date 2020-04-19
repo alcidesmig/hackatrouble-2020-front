@@ -1,12 +1,13 @@
-import React, { createRef } from 'react'
+import React from 'react'
 import Logo from '../assets/logo.png'
-import { IonPage, IonContent, IonInput, IonLabel, IonItem, IonHeader, IonToolbar, IonButtons, IonBackButton, IonButton, IonItemGroup, IonSlides, IonSlide } from '@ionic/react'
+import {
+  IonPage, IonContent, IonInput, IonLabel, IonItem, IonHeader,
+  IonToolbar, IonButtons, IonBackButton, IonButton
+} from '@ionic/react'
 import { withRouter, RouteComponentProps } from 'react-router'
 
-const Mapa = () => (<div>sdjksdlasdasd</div>)
-
 class ClienteLogin extends React.Component<RouteComponentProps> {
-  state = { cpf: '1', password: '' }
+  state = { cpf: '', password: '' }
 
   render() {
 

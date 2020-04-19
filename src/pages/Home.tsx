@@ -1,4 +1,4 @@
-import React, { ReactComponentElement, Props } from 'react'
+import React from 'react'
 import Logo from '../assets/logo.png'
 import { IonPage, IonContent, IonButton } from '@ionic/react'
 import { withRouter, RouteComponentProps } from 'react-router'
