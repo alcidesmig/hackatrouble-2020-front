@@ -26,6 +26,7 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import CriarFila from './pages/CriarFila';
 
 const App: React.FC = () => (
   <IonApp>
@@ -35,6 +36,7 @@ const App: React.FC = () => (
         <Route path="/clientes" component={ClientLogin} exact={true} />
         <Route path="/clientes/cadastro" component={ClienteCadastro} exact={true} />
         <Route path="/estabelecimentos/cadastro" component={EstabelecimentoCadastro} exact={true} />
+        <Route path="/estabelecimentos/criarfila" component={CriarFila} exact={true} />
       </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>

@@ -5,7 +5,7 @@ import Logo from '../assets/logo.png'
 const style={color: 'gray'}
 
 class EstabelecimentoCadastro extends React.Component {
-    state = {categoria: "", horario: ""};
+    state = {categoria: "", horarioAbertura: "", horarioFechamento: ""};
 
     render() {
         return (
@@ -18,7 +18,7 @@ class EstabelecimentoCadastro extends React.Component {
                 </IonToolbar>
             </IonHeader>
             <IonContent>
-            <div style={{ marginTop: 50, width: '100%', height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+            <div style={{ marginTop: 30, width: '100%', height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
             <img src={Logo} alt="Fila virtual" width={64} height={64} style={{ borderRadius: 16 }} />
                 <div style={{ padding: 32, width: '100%', maxWidth: 768, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
                 <form style={{ display: 'flex', flexDirection: 'column', width: '100%'}}>
@@ -33,8 +33,12 @@ class EstabelecimentoCadastro extends React.Component {
                         </IonSelect>
                     </IonItem>
                     <IonItem style={{marginTop: 5}} >
-                        <IonLabel position="floating" style={style}>Horário de funcionamento</IonLabel>
-                        <IonDatetime displayFormat="DD/MM/YYYY HH:mm" value={this.state.horario} onIonChange={e => this.setState({horario: e.detail.value!})}/>
+                        <IonLabel position="floating" style={style}>Horário de abertura</IonLabel>
+                        <IonDatetime displayFormat="DD/MM/YYYY HH:mm" value={this.state.horarioAbertura} onIonChange={e => this.setState({horarioAbertura: e.detail.value!})}/>
+                    </IonItem>
+                    <IonItem style={{marginTop: 5}} >
+                        <IonLabel position="floating" style={style}>Horário de fechamento</IonLabel>
+                        <IonDatetime displayFormat="DD/MM/YYYY HH:mm" value={this.state.horarioFechamento} onIonChange={e => this.setState({horarioFechamento: e.detail.value!})}/>
                     </IonItem>
                     <IonItem>
                         <IonLabel position="floating" style={style}>CNPJ</IonLabel>
