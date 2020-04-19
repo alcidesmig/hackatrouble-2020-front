@@ -1,5 +1,5 @@
 import React from 'react';
-import { IonPage, IonContent, IonButton, IonHeader, IonToolbar, IonButtons, IonBackButton, IonTitle, IonLabel} from '@ionic/react'
+import { IonPage, IonContent, IonButton, IonHeader, IonToolbar, IonButtons, IonBackButton, IonTitle, IonLabel, IonModal, IonIcon, IonItem, IonInput} from '@ionic/react'
 import { withRouter, RouteComponentProps } from 'react-router';
 
 const style={color: 'gray'}
@@ -8,8 +8,8 @@ export interface CriarFilaInterface extends RouteComponentProps<{
     id: string
   }> {}
 
-class CriarFila extends React.Component<CriarFilaInterface> {
-    state = {checked: true, horarioAbertura: "", horarioFechamento: "", tempo: ""};
+class EstabelecimentoFila extends React.Component<CriarFilaInterface> {
+    state = {showModal: false};
     render() {
         const {id} = this.props.match.params
         return (
@@ -39,9 +39,36 @@ class CriarFila extends React.Component<CriarFilaInterface> {
                             <IonLabel style={{marginTop: 15}}>Nome: </IonLabel>
                             <IonLabel>CPF: </IonLabel>
                         </div>
+                        <IonModal 
+                            swipeToClose={true} 
+                            isOpen={this.state.showModal}
+                            onDidDismiss={() => this.setState({showModal: false})}>
+                            <IonHeader>
+                            <IonToolbar>
+                                <IonTitle style={style}>Inserir cliente</IonTitle>
+                                <IonButton slot="end" onClick={() => this.setState({showModal: false})}>
+                                    <IonIcon slot="icon-only" icon="close" />
+                                </IonButton>
+                                </IonToolbar>
+                            </IonHeader>
+                            <IonContent style={{ padding: 32, width: '100%', maxWidth: 768, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                                <form style={{ display: 'flex', flexDirection: 'column', margin: 20, marginTop: 30}}>
+                                    <IonItem>
+                                        <IonLabel position="floating" style={style}>Nome do cliente</IonLabel>
+                                        <IonInput required/>
+                                    </IonItem>
+                                    <IonItem>
+                                        <IonLabel position="floating" style={style}>CPF do cliente</IonLabel>
+                                        <IonInput required/>
+                                    </IonItem>
+                                    <IonButton fill="solid" expand="block" style={{ marginTop: 40 }}>Inserir cliente</IonButton>
+                                    <IonButton fill="outline" onClick={() => this.setState({showModal: false})}>Cancelar</IonButton>
+                                </form>
+                            </IonContent>
+                        </IonModal>
                         <IonButton fill="solid" color="success"expand="block" style={{ marginTop: 40}}>Cliente entrou</IonButton>
                         <IonButton fill="solid" color="danger" expand="block">Cliente faltante</IonButton>
-                        <IonButton fill="solid" color="secondary" expand="block">Inserir cliente</IonButton>
+                        <IonButton fill="solid" color="secondary" expand="block" onClick={() => this.setState({showModal: true})}>Inserir cliente</IonButton>
                         <IonButton fill="outline" style={{colorHover: "secondary"}}>Encerrar fila</IonButton>
                     </div>
                 </div>
@@ -52,4 +79,4 @@ class CriarFila extends React.Component<CriarFilaInterface> {
     }
 }
 
-export default withRouter(CriarFila)
+export default withRouter(EstabelecimentoFila)
