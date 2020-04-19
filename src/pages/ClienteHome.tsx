@@ -5,7 +5,7 @@ import { logOut, logoUsd, medkit, cart, businessOutline } from 'ionicons/icons';
 
 const style = { textAlign: 'center', alignItems: 'center', marginLeft: '15px', marginRight: '15px' }
 
-const OutrosLocais = ({ locais, selectedItem, onSelectCategory }: { selectedItem: string, onSelectCategory: (category: string) => null | void, locais: { nome: string, categoria: string, distancia: string }[] }) => (
+const OutrosLocais = ({ locais, selectedItem, onSelectCategory }: { selectedItem: string, onSelectCategory: (category: string) => null | void, locais: { id: string, nome: string, categoria: string, distancia: string }[] }) => (
 
     <div>
         <IonGrid style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
@@ -51,9 +51,9 @@ const OutrosLocais = ({ locais, selectedItem, onSelectCategory }: { selectedItem
 
 
         <IonList>
-            {locais.map(l => {
+            {locais.map((l, index) => {
                 return (
-                    <IonItem button onClick={() => { }} color="">
+                    <IonItem key={index} button routerLink={`/cliente/estabelecimento/${l.id}`} >
                         <div style={{ display: 'flex', flexDirection: 'column' }}>
                             <IonLabel style={{ color: '#353839 ' }}>{l.nome}</IonLabel>
                             <IonLabel style={{ fontSize: 13, color: 'gray' }}>{l.categoria}</IonLabel>
@@ -104,18 +104,18 @@ class ClienteHome extends React.Component {
         'campo_busca': '',
         'categoria_selecinada': '',
 
-        'filas': [{ 'nome_estabelecimento': 'Estabelecimento 1', 'nome': 'Fila 1', 'distancia': '25min' },
-        { 'nome_estabelecimento': 'Estabelecimento 1', 'nome': 'Fila 2', 'distancia': '50min' }],
+        'filas': [{ 'id': '1', 'nome_estabelecimento': 'Estabelecimento 1', 'nome': 'Fila 1', 'distancia': '25min' },
+        { 'id': '2', 'nome_estabelecimento': 'Estabelecimento 1', 'nome': 'Fila 2', 'distancia': '50min' }],
 
         'filas_filtradas': [],
 
         'locais': [
-            { 'nome': 'Estabelecimento 1', 'categoria': 'Banco', 'distancia': '2km' },
-            { 'nome': 'Estabelecimento 2', 'categoria': 'Banco', 'distancia': '17km' },
-            { 'nome': 'Estabelecimento 1', 'categoria': 'Banco', 'distancia': '2km' },
-            { 'nome': 'Estabelecimento 1', 'categoria': 'Atendimentos Municipais', 'distancia': '2km' },
-            { 'nome': 'Estabelecimento 2', 'categoria': 'Atendimentos Municipais', 'distancia': '2km' },
-            { 'nome': 'Estabelecimento 3', 'categoria': 'Atendimentos Municipais', 'distancia': '2km' }
+            { 'id': 1, 'nome': 'Estabelecimento 1', 'categoria': 'Banco', 'distancia': '2km' },
+            { 'id': 2, 'nome': 'Estabelecimento 2', 'categoria': 'Banco', 'distancia': '17km' },
+            { 'id': 3, 'nome': 'Estabelecimento 1', 'categoria': 'Banco', 'distancia': '2km' },
+            { 'id': 4, 'nome': 'Estabelecimento 1', 'categoria': 'Atendimentos Municipais', 'distancia': '2km' },
+            { 'id': 5, 'nome': 'Estabelecimento 2', 'categoria': 'Atendimentos Municipais', 'distancia': '2km' },
+            { 'id': 6, 'nome': 'Estabelecimento 3', 'categoria': 'Atendimentos Municipais', 'distancia': '2km' }
 
         ],
 
@@ -173,7 +173,7 @@ class ClienteHome extends React.Component {
     }
 
     componentDidUpdate(prevProps: any, prevState: any) {
-        if (prevState.categoria_selecinada !== this.state.categoria_selecinada || prevState.campo_busca !== this.state.campo_busca || prevState.type_segment !==this.state.type_segment) {
+        if (prevState.categoria_selecinada !== this.state.categoria_selecinada || prevState.campo_busca !== this.state.campo_busca || prevState.type_segment !== this.state.type_segment) {
             if (this.state.type_segment === '1') {
                 this.filterLocais()
             } else {

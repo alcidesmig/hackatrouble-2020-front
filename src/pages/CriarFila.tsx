@@ -53,7 +53,7 @@ class CriarFila extends React.Component {
                         </div>
                     )}
                     <IonButton fill="solid" expand="block" style={{ marginTop: 40 }}>Finalizar</IonButton>
-                    <IonButton fill="outline">Cancelar</IonButton>
+                    <IonButton fill="outline" routerLink="/estabelecimentos" routerDirection="forward">Cancelar</IonButton>
                 </form>
                 </div>
             </div>
