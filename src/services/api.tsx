@@ -1,9 +1,14 @@
 import axios from "axios";
 
-const BASE_URL = 'https://localhost:3000/'
+const BASE_URL = 'http://ec2-3-89-219-7.compute-1.amazonaws.com:5000/'
+
+const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1ODczMTkyMjMsIm5iZiI6MTU4NzMxOTIyMywianRpIjoiNGEwYzg4NjktOGFhNy00NzY3LTg0OWMtODFkM2FiMzMyMWFiIiwiZnJlc2giOmZhbHNlLCJpZGVudGl0eSI6ImFwaSIsImV4cCI6MTYxODg1NTIyMywidHlwZSI6ImFjY2VzcyJ9.361GKuORHDelfxg1oRzLxuJP6y4-aSmR5OUo0ZI0ZHw'
 
 const api = axios.create({
   baseURL: BASE_URL,
+  headers: {
+    Authorization: `Bearer ${token}`
+  }
 });
 
 export interface Cliente {
